@@ -1,0 +1,44 @@
+.searchResult_container{
+    width: 100%;
+    margin: 20px 0;
+}
+
+.searchContent_box{
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.searchContent_box h2{
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+.searchContent_box p{
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #777982;
+}
+
+.searchLine_box{
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: #2D303E;
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.searchLine_box::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background: #6C5ECF;
+    width: 65%;
+    height: 100%;
+}
