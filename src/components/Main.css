@@ -23,10 +23,23 @@ main h3{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(0px);
 }
 
 .leftSection .menuSection{
     width: 100%;
+    position: relative;
+}
+
+.leftSection .menuSection .closeIcon{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 20px;
+    color: #92949B;
+    cursor: pointer;
+    display: none;
 }
 
 .leftSection .categorySection{
@@ -71,6 +84,25 @@ main h3{
     /* background: purple; */
     height: 100%;
     display: flex;
+    flex-direction: column;
+}
+
+.rightSection .toggleMenu{
+    font-size: 30px;
+    color: #92949B;
+    display: none;
+}
+
+.rightSection h1{
+    color: #f1f1f1;
+    font-weight: 600;
+    margin: 20px 0 3px 20px;
+}
+
+.rightSection .rightMainContainer{
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .rightSection .leftContainer{
@@ -97,33 +129,29 @@ main h3{
     background: #555;
   }
 
-.rightSection .leftContainer h1{
-    color: #f1f1f1;
-    font-weight: 600;
-    margin: 20px 0 3px 0;
-}
+
 
 .rightSection .rightContainer{
     width: 25%;
     height: 100%;
-    padding-top: 80px;
+    /* padding-top: 80px; */
     padding-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
 }
 
 .rightSection .rightContainer .topContainer{
     width: 100%;
-    height: 35%;
-    padding: 10px 20px;
+    padding: 20px;
     background: #262837;
     border-radius: 20px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, .1);
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    margin: 5px 0;
 }
 
 .rightSection .rightContainer .topContainer h2{
@@ -144,11 +172,11 @@ main h3{
 
 .rightSection .rightContainer .lowerContaier{
     width: 100%;
-    height: 62%;
     background: #262837;
     border-radius: 20px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, .1);
-    padding: 10px 20px;
+    padding: 30px 20px;
+    margin: 5px 0;
 }
 
 .rightSection .rightContainer .lowerContaier h2{
@@ -164,9 +192,9 @@ main h3{
 }
 
 .rightSection .rightContainer .lowerContaier a{
-    width: 100%;
+    display: flex;
+    justify-content: center;
     padding: 10px 30px;
-    text-align: center;
     text-decoration: none;
     border-radius: 20px;
     border: 1px solid #3A3D4A;
@@ -178,4 +206,89 @@ main h3{
     background: #6C5ECF;
     color: #f1f1f1;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, .1);
+}
+
+@media screen and (max-width : 900px) and (min-width : 700px){
+    .rightSection{
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .rightSection .rightMainContainer{
+        flex-direction: column;
+    }
+        
+    .rightSection .leftContainer{
+        height: 100vh;
+        width: 90%;
+        overflow-y: unset;
+        margin-left: 10%;
+    }
+
+    .rightSection .rightContainer{
+        margin-top: 10%;
+        height: 100vh;
+        width: 90%;
+        margin-left: 10%;
+    }
+
+    main{
+        padding: 50px 15px 10px 15px;
+    }
+
+}
+
+@media screen and (max-width : 550px){
+    .rightSection .rightMainContainer{
+        flex-direction: column;
+        height: unset;
+    }
+
+    main{
+        overflow-y: auto;
+        padding: 50px 10px 10px 10px;
+    }
+
+    .leftSection{
+        width: 50%;
+        z-index: 102;
+        position: fixed;
+        background: #262837;
+        left: 0;
+        top: 0;
+        padding-left: 20px;
+        transform: translateX(-250px);
+    }
+
+    .rightSection{
+        height: unset;
+        width: 100%;
+    }
+
+    .rightSection h1{
+        text-align: right;
+        margin: 10px 20px;
+    }
+
+    .rightSection .leftContainer{
+        height: unset;
+        overflow-y: unset;
+        width: 100%;
+    }
+
+    .rightSection .rightContainer{
+        width: 100%;
+        height: unset;
+    }
+
+    .leftSection .menuSection .closeIcon{
+        display: block;
+    }
+
+    .rightSection .toggleMenu{
+        display: block;
+        position: absolute;
+        left: 35px;
+        top: 70px;
+    }
 }

@@ -115,3 +115,9 @@ header h2{
 }
 
 
+@media screen and (max-width : 550px){
+    .inputBox{
+        display: none;
+    }
+}
+

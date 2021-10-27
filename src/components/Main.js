@@ -8,7 +8,9 @@ import {
   FaBookmark,
   FaBookOpen,
   FaSignOutAlt,
+  FaWindowClose,
 } from "react-icons/fa";
+import { BiMenuAltLeft } from "react-icons/bi";
 import MenuList from "./MenuList";
 import MainCard from "./MainCard";
 // IMages
@@ -25,10 +27,22 @@ import SkatersProfile from "./SkatersProfile";
 import SearchResultContainer from "./SearchResultContainer";
 
 function Main() {
+  const closeMenu = () => {
+    document.querySelector(".leftSection").style.transform =
+      "translateX(-250px)";
+  };
+
+  const toggleMenuActive = () => {
+    document.querySelector(".leftSection").style.transform = "translateX(0px)";
+  };
+
   return (
     <main>
-      <div className="leftSection">
+      <div className="leftSection" id="leftSection">
         <div className="menuSection">
+          <i className="closeIcon" onClick={closeMenu}>
+            <FaWindowClose />
+          </i>
           <h3>Menu</h3>
           <MenuList listIcon={<FaHome />} listName={"Discover"} />
           <MenuList listIcon={<FaArrowRight />} listName={"Trending"} />
@@ -56,93 +70,98 @@ function Main() {
       </div>
 
       <div className="rightSection">
-        <div className="leftContainer">
-          <h1>Trending</h1>
-          <MainCard
-            id={"01"}
-            video={Video1}
-            title={"Basic How to ride you skateboard comfortly"}
-            views={"125,675"}
-            likes={"125,675"}
-            author_image={Vetri}
-            name="Vetrivel Ravi"
-            posted_date="2 days ago"
-            video_duration="2 min"
-          />
+        <i className="toggleMenu" onClick={toggleMenuActive}>
+          <BiMenuAltLeft />
+        </i>
+        <h1>Trending</h1>
+        <div className="rightMainContainer">
+          <div className="leftContainer">
+            <MainCard
+              id={"01"}
+              video={Video1}
+              title={"Basic How to ride you skateboard comfortly"}
+              views={"125,675"}
+              likes={"125,675"}
+              author_image={Vetri}
+              name="Vetrivel Ravi"
+              posted_date="2 days ago"
+              video_duration="2 min"
+            />
 
-          <MainCard
-            id={"02"}
-            video={Video2}
-            title={"How to do basic jump safely"}
-            views={"125,675"}
-            likes={"125,675"}
-            author_image={Vetri}
-            name="Vetrivel Ravi"
-            posted_date="2 days ago"
-            video_duration="2 min"
-          />
+            <MainCard
+              id={"02"}
+              video={Video2}
+              title={"How to do basic jump safely"}
+              views={"125,675"}
+              likes={"125,675"}
+              author_image={Vetri}
+              name="Vetrivel Ravi"
+              posted_date="2 days ago"
+              video_duration="2 min"
+            />
 
-          <MainCard
-            id={"03"}
-            video={Video3}
-            title={"Tips to playing skatesboard on the ramp"}
-            views={"125,675"}
-            likes={"125,675"}
-            author_image={Vetri}
-            name="Vetrivel Ravi"
-            posted_date="2 days ago"
-            video_duration="2 min"
-          />
+            <MainCard
+              id={"03"}
+              video={Video3}
+              title={"Tips to playing skatesboard on the ramp"}
+              views={"125,675"}
+              likes={"125,675"}
+              author_image={Vetri}
+              name="Vetrivel Ravi"
+              posted_date="2 days ago"
+              video_duration="2 min"
+            />
 
-          <MainCard
-            id={"04"}
-            video={Video4}
-            title={"Preapre for your first skateboard jump"}
-            views={"125,675"}
-            likes={"125,675"}
-            author_image={Vetri}
-            name="Vetrivel Ravi"
-            posted_date="2 days ago"
-            video_duration="2 min"
-          />
-        </div>
-        <div className="rightContainer">
-          <div className="topContainer">
-            <h2>Popular Skaters</h2>
-            <div className="skaters">
-              <SkatersProfile img={Vetri} name={"Vetrivel Ravi"} />
-              <SkatersProfile img={man1} name={"John Smith"} />
-              <SkatersProfile img={man2} name={"Willioms David"} />
-              <SkatersProfile img={man3} name={"Mark Collins"} />
-              <SkatersProfile img={Vetri} name={"Akash Kumar"} />
-              <SkatersProfile img={man3} name={"Munees"} />
-            </div>
+            <MainCard
+              id={"04"}
+              video={Video4}
+              title={"Preapre for your first skateboard jump"}
+              views={"125,675"}
+              likes={"125,675"}
+              author_image={Vetri}
+              name="Vetrivel Ravi"
+              posted_date="2 days ago"
+              video_duration="2 min"
+            />
           </div>
-
-          <div className="lowerContaier">
-            <h2>Popular Searches</h2>
-
-            <div className="searchResult">
-              <SearchResultContainer
-                content="skateboard trick"
-                content_value="21,938,421"
-              />
-              <SearchResultContainer
-                content="flip and jump"
-                content_value="21,938,421"
-              />
-              <SearchResultContainer
-                content="safety equipment"
-                content_value="21,938,421"
-              />
-
-              <SearchResultContainer
-                content="recent events"
-                content_value="21,938,421"
-              />
+          <div className="rightContainer">
+            <div className="topContainer">
+              <h2>Popular Skaters</h2>
+              <div className="skaters">
+                <SkatersProfile img={Vetri} name={"Vetrivel Ravi"} />
+                <SkatersProfile img={man1} name={"John Smith"} />
+                <SkatersProfile img={man2} name={"Willioms David"} />
+                <SkatersProfile img={man3} name={"Mark Collins"} />
+                <SkatersProfile img={Vetri} name={"Akash Kumar"} />
+                <SkatersProfile img={man3} name={"Munees"} />
+              </div>
             </div>
 
-            <a href="#"> See All Popular Searches </a>
+            <div className="lowerContaier">
+              <h2>Popular Searches</h2>
+
+              <div className="searchResult">
+                <SearchResultContainer
+                  content="skateboard trick"
+                  content_value="21,938,421"
+                />
+                <SearchResultContainer
+                  content="flip and jump"
+                  content_value="21,938,421"
+                />
+                <SearchResultContainer
+                  content="safety equipment"
+                  content_value="21,938,421"
+                />
+
+                <SearchResultContainer
+                  content="recent events"
+                  content_value="21,938,421"
+                />
+              </div>
+
+              <a href="#"> See All Popular Searches </a>
+            </div>
           </div>
         </div>
       </div>
